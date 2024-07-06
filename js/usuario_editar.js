@@ -6,7 +6,7 @@ const { createApp } = Vue
     data() {
       return {
         id:0,
-        urusario:"",        
+        usuario:"",        
         clave:"",
         rol:0,        
         url:'https://eli24177x.pythonanywhere.com/usuarios/'+id,
@@ -19,7 +19,7 @@ const { createApp } = Vue
                 .then(data => {
                     console.log(data)
                     this.id=data.id
-                    this.urusarioe=data.usuario                   
+                    this.usuario=data.usuario                   
                     this.clave=data.clave
                     this.rol=data.rol                 
                 })
@@ -50,6 +50,7 @@ const { createApp } = Vue
                     alert("Error al Modificar")
                 })      
         }
+      
     },
     created() {
         this.fetchData(this.url)

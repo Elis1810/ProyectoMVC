@@ -13,7 +13,7 @@ const { createApp } = Vue
         caracteristicas:"",
         peso:0,
         altura:0,
-        imagen:"",
+        imagen:null,
         url:'https://eli24177x.pythonanywhere.com/productos/'+id,
        }  
     },
@@ -64,6 +64,12 @@ const { createApp } = Vue
                     console.error(err);
                     alert("Error al Modificar")
                 })      
+        },
+        onFileChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                this.imagen = URL.createObjectURL(file);
+            }
         }
     },
     created() {

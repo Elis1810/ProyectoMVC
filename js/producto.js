@@ -2,20 +2,20 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            productos: [],            
-            url: 'https://eli24177x.pythonanywhere.com/productos', 
+            productos: [],
+            url: 'https://eli24177x.pythonanywhere.com/productos',
             error: false,
             cargando: true,
             /*atributos para el guardar los valores del formulario */
             id: 0,
             nombre: "",
-            imagen: "",
             stock: 0,
             precio: 0,
             tipo: "",
             caracteristicas: "",
             peso: 0,
-            altura: 0
+            altura: 0,
+            imagen: null
         }
     },
     methods: {
@@ -71,9 +71,16 @@ createApp({
                     console.error(err);
                     alert("Error al Grabar")  // puedo mostrar el error tambien
                 })
-                    }
+        },
+
+        onFileChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                this.imagen = URL.createObjectURL(file);
+            }
+        }
     },
-    created() {        
+    created() {
         this.fetchData(this.url)
     },
 }).mount('#app')

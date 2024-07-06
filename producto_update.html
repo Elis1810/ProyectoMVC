@@ -48,11 +48,11 @@
             <label class="col-sm-2 col-form-label" for="altura">Altura</label>
             <input type="number" name="altura" id="altura" v-model="altura">
         </div>  
-          <div class="mb-3">
-            <label class="col-sm-2 col-form-label" for="imagen">Imagen</label>
-            <input type="text" name="imagen" id="imagen" v-model="imagen">  
-            <img width="90"   :src="imagen" alt="">
-          </div>
+        <div class="mb-3">
+          <label class="col-sm-2 col-form-label" for="imagen">Imagen</label>
+          <input type="file" name="imagen" id="imagen" @change="onFileChange">
+          <img width="90" :src="imagen" alt="">
+        </div>
           <button type="button" class="btn btn-outline-success" v-on:click="modificar()">Grabar</button>
           </form>
         </div>
