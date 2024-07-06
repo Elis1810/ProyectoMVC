@@ -23,6 +23,11 @@ createApp({
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
+                    for (var i = 0; i < data.length; i++) {
+                    
+                        data[i].imagen="./img/"+data[i].imagen;
+                    }
+
                     this.productos = data;
                     this.cargando = false
 
@@ -54,8 +59,9 @@ createApp({
                 caracteristicas: this.caracteristicas,
                 peso: this.peso,
                 altura: this.altura,
-                imagen: this.imagen
-            }
+                imagen: document.getElementById("imagen").files[0].name
+            }            
+
             var options = {
                 body: JSON.stringify(producto),
                 method: 'POST',

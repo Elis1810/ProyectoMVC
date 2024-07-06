@@ -31,7 +31,7 @@ const { createApp } = Vue
                     this.caracteristicas=data.caracteristicas
                     this.peso=data.peso
                     this.altura=data.altura
-                    this.imagen=data.imagen
+                    this.imagen="./img/"+ data.imagen
                 })
                 .catch(err => {
                     console.error(err);
@@ -47,8 +47,11 @@ const { createApp } = Vue
                 caracteristicas:this.caracteristicas,
                 peso:this.peso,
                 altura:this.altura,
-                imagen:this.imagen
-            }
+                imagen:document.getElementById("imagen").files[0].name
+            }     
+            console.log(producto); 
+            console.log(document.getElementById("imagen").files[0].name);    
+
             var options = {
                 body: JSON.stringify(producto),
                 method: 'PUT',
